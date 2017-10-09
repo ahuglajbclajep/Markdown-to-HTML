@@ -10,11 +10,11 @@ renderer.heading = (text, level) => `<h${level}>${text}</h${level}>`;
 marked.setOptions({renderer});
 
 gulp.task('default', () => {
-  gulp.src('src/*.md')
+  gulp.src('src/**/*.md')
     .pipe(frontMatter({remove: true}))
     .pipe(markdown())
     .pipe(layout(file => file.frontMatter))
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true, minifyCSS: true}))
     .pipe(gulp.dest('dist'));
   }
 );
