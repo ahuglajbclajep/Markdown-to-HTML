@@ -1,1 +1,1 @@
-document.body.className = "markdown-body";
+document.body.classList.add("markdown-body");
