@@ -1,6 +1,7 @@
 {
   "name": "md2html",
   "version": "1.0.0",
+  "description": "Generate HTML from Markdown",
   "private": true,
   "bin": "bin/md2html.js",
   "scripts": {
