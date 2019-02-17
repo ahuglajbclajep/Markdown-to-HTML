@@ -1,0 +1,12 @@
+{
+  "name": "highlight-example",
+  "version": "1.0.0",
+  "description": "An example using highlight.js",
+  "private": true,
+  "dependencies": {
+    "highlight.js": "^9.14.2"
+  },
+  "devDependencies": {
+    "md2html": "file:../.."
+  }
+}

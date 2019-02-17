@@ -27,6 +27,8 @@ Examples:
   md2html.js README.md  Generate README.html
 ```
 
+Concrete examples are in the [examples/](examples/).
+
 ## License
 
 [MIT](LICENSE)

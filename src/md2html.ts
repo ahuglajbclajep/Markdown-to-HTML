@@ -44,8 +44,7 @@ const argv = yargs
   .array("c")
   .describe("c", "CSS to include in <head> element")
   .help()
-  .detectLocale(false)
-  .strict().argv;
+  .detectLocale(false).argv;
 
 (async () => {
   const md: VFile = vfile.readSync(argv._[0]);
