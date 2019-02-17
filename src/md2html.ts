@@ -1,14 +1,20 @@
 #!/usr/bin/env node
 
+import { VFile } from "vfile";
+import path from "path";
 import unified from "unified";
 import parse from "remark-parse";
 import mutate from "remark-rehype";
 import highlight from "rehype-highlight";
 import doc from "rehype-document";
 import stringify from "rehype-stringify";
-import { VFile } from "vfile";
 import yargs from "yargs";
 import vfile from "to-vfile";
+
+function move2cwd(source: VFile): VFile {
+  source.path = path.join(source.cwd, source.basename || "");
+  return source;
+}
 
 async function md2html(
   markdown: VFile,
@@ -41,7 +47,9 @@ const argv = yargs
   .detectLocale(false)
   .strict().argv;
 
-vfile
-  .read(argv._[0])
-  .then((md: VFile) => md2html(md, argv.h, { css: argv.c }))
-  .then((html: VFile) => vfile.write(html));
+(async () => {
+  const md: VFile = vfile.readSync(argv._[0]);
+  move2cwd(md);
+  const html = await md2html(md, argv.h, { css: argv.c });
+  vfile.writeSync(html);
+})();
