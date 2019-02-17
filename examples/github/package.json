@@ -1,0 +1,13 @@
+{
+  "name": "github-example",
+  "version": "1.0.0",
+  "description": "An example using github-markdown-css",
+  "private": true,
+  "dependencies": {
+    "github-markdown-css": "^3.0.1",
+    "highlight.js": "^9.14.2"
+  },
+  "devDependencies": {
+    "md2html": "file:../.."
+  }
+}

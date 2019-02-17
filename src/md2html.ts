@@ -33,7 +33,7 @@ async function md2html(
 }
 
 const argv = yargs
-  .usage("$0 <path> [-h] [-c <path>]")
+  .usage("$0 <path> [-h] [-c <path>] [-j <path>]")
   .demandCommand(1)
   .example("$0 README.md", "Generate README.html")
   .alias("h", "highlite")
@@ -43,12 +43,15 @@ const argv = yargs
   .alias("c", "css")
   .array("c")
   .describe("c", "CSS to include in <head> element")
+  .alias("j", "js")
+  .array("j")
+  .describe("j", "JS to include at end of <body> element")
   .help()
   .detectLocale(false).argv;
 
 (async () => {
   const md: VFile = vfile.readSync(argv._[0]);
   move2cwd(md);
-  const html = await md2html(md, argv.h, { css: argv.c });
+  const html = await md2html(md, argv.h, { css: argv.c, js: argv.j });
   vfile.writeSync(html);
 })();
