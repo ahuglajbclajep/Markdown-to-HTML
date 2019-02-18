@@ -7,6 +7,6 @@
     "highlight.js": "^9.14.2"
   },
   "devDependencies": {
-    "md2html": "file:../.."
+    "md2pdf": "file:../.."
   }
 }

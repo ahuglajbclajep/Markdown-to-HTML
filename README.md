@@ -1,6 +1,6 @@
-# md2html
+# md2pdf
 
-> Generate HTML from Markdown.
+> Generate HTML and PDF from Markdown.
 
 ## Getting Started
 
@@ -8,24 +8,26 @@
 
 ```sh
 $ npm i && npm run build && npm ln
-$ md2html --version
+$ md2pdf --version
 ```
 
 ### Usage
 
 ```sh
-$ md2html --help
-md2html.js <path> [-h] [-c <path>] [-j <path>]
+$ md2pdf --help
+md2pdf.js <path> [-h] [-c path...] [-j path...] <-p path> [-s size]
 
 Options:
   --version       Show version number                                  [boolean]
   -h, --highlite  Use highlight.js                    [boolean] [default: false]
   -c, --css       CSS to include in <head> element                       [array]
   -j, --js        JS to include at end of <body> element                 [array]
+  -p, --path      Path to your Chrome                        [string] [required]
+  -s, --size      Size of PDF                                    [default: "A5"]
   --help          Show help                                            [boolean]
 
 Examples:
-  md2html.js README.md  Generate README.html
+  md2pdf.js README.md  Generate README.pdf
 
 ```
 
