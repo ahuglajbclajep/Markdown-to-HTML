@@ -2,3 +2,7 @@
   white-space: pre-wrap;
   word-break: break-all;
 }
+
+@page {
+  margin: 1rem;
+}
